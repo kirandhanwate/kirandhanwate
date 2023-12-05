@@ -157,11 +157,26 @@ Amount am=new Amount();
 		System.out.println(Ac.getAmount());
 		
 	}
+
+    public void NAccount()
+{
+    	
+    	Scanner sc2=new Scanner(System.in);
+    	System.out.println("Enter account No");
+    	int a=sc2.nextInt();
+    	
+    	Ac.setAccountNumber2(a);
+    	System.out.println("Account Balance");
+    	double v=sc2.nextDouble();
+    	Ac.setAmount2(v);
+    	
+}
 	public void transfer()
-	{
+	{ 
 		Scanner sc1=new Scanner(System.in);
-		while(true)
-		{
+		
+		
+		
 			System.out.println("Transfer from Acoount");
 			int c=sc1.nextInt();
 			
@@ -170,33 +185,45 @@ Amount am=new Amount();
 			
 		System.out.println("Enter Account Number to Transfer");
 		int y=sc1.nextInt();
-		Ac.setAccountNumber2(y);
 		
+		if(y==Ac.getAccountNumber2())
+		{
 		System.out.println("Enter Account Holder Name");
 		String s1=sc1.next();
 		Ac.setCustomerName(s1);
 		
-		
 		System.out.println("enter the amount to transfer");
-		int e=Sc.nextInt();
-			
+		double e=Sc.nextInt();
+		Ac.setTransferAmmount(e);
+		
 		if(Ac.getAmount()>=500)
 		{
-			double TransferAmmount=Ac.getAmount()-e;
+			double TransferAmmount=Ac.getAmount()-Ac.getTransferAmmount();
 			
-			System.out.println("Amount Transfer successfully in "+ Ac.getAccountNumber()+"available Balance is "+ TransferAmmount);
+			System.out.println("Amount Transfer successfully in "+ Ac.getAccountNumber()+" available Balance is "+ TransferAmmount);
 		}
 		else
 		{
 		
 		System.out.println("account balance not inough to transfer");
 		}
-		break;
-	}
 		
+	}
+		else {
+			System.out.println("Enter valide Account Number");
+		}
+
+    	double addBalance= Ac.getAmount2()+Ac.getTransferAmmount();
+    	System.out.println("Amount is Creadited successfully "+Ac.getTransferAmmount()+" Available Balance is"+addBalance);
+			}
+			
+
+		    	
+		    	
 }
 	}
-}
+	
+
    
 
 

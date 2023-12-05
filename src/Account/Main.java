@@ -14,7 +14,7 @@ public class Main {
 		{
 		System.out.println("Select the Option");
 		
-		System.out.println("1 Create an Account /n 2 Account Details /n 3 Account Balance /n 4 Deposite /n 5 Withdraw Amount /n 6 Transfer");
+		System.out.println("1 Create an Account /n 2 Account Details /n 3 Account Balance /n 4 Deposite /n 5 Withdraw Amount /n 6 New account /n 7 Transfer");
 		int x=sc.nextInt();
 		switch(x)
 		{
@@ -39,8 +39,11 @@ public class Main {
 			break;
 			
 		case 6:
-			Op.transfer();
+			Op.NAccount();
+	break;
 			
+		case 7:
+			Op.transfer();
 			
 		}
 		 

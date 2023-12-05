@@ -8,7 +8,21 @@ public class Account {
 	private int Password;
 	private Double Amount;
 	private int AccountNumber2;
+	private Double TransferAmmount;
+	private Double Amount2;
 	
+	public Double getAmount2() {
+		return Amount2;
+	}
+	public void setAmount2(Double amount2) {
+		Amount2 = amount2;
+	}
+	public Double getTransferAmmount() {
+		return TransferAmmount;
+	}
+	public void setTransferAmmount(Double transferAmmount) {
+		TransferAmmount = transferAmmount;
+	}
 	public int getAccountNumber2() {
 		return AccountNumber2;
 	}
