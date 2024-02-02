@@ -1,13 +1,16 @@
 package bancking.project;
-
+2
 import java.util.Scanner;
 
 public class Main {
-public static void main(String[] args) {
+public static void main(String[] args) throws InterruptedException {
 	Scanner sc=new Scanner(System.in);
     Operation op=new Operation();
 	while (true)
 	{
+		System.out.println("Welcome");
+		Thread.sleep(2000);
+		
 	System.out.println("Select the option");
 	
 System.out.println(" 1.Create Account \n 2.Show Account details \n 3.Balance Check \n 4 Deposite \n 5 WithDraw");

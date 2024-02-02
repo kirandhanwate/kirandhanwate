@@ -1,6 +1,7 @@
 package bancking.project;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hibernate.SessionFactory;
@@ -25,7 +26,7 @@ public static SessionFactory getSessionFactory()
 	
 	setting.put(Environment.HBM2DDL_AUTO,"update");
 	setting.put(Environment.DIALECT,"org.hibernate.dialect.MySQL55Dialect");
-	setting.put(Environment.SHOW_SQL,"true");
+	setting.put(Environment.SHOW_SQL,"true");  
 	
 	registry=new StandardServiceRegistryBuilder().applySettings(setting).build();
 	
