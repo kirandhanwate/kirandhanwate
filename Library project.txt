@@ -1,0 +1,125 @@
+
+
+const express = require('express')
+const first = express()
+first.set('view engine', 'ejs')
+
+first.get("/", (req, res) => {
+	res.render("home", { variableName: "Hello Geeks!" })
+})
+
+first.listen(3000, (req, res) => {
+	console.log("first is running on port 3000")
+})
+const express = require('express')
+const bodyParser = require('body-parser')
+const books = [{
+		bookName: "Funiest Book ",
+		bookAuthor: "Ram Chand",
+		bookPages: 200,
+		bookPrice: 240,
+		bookState: "Available"
+	},
+	{
+		bookName: "Shyamachi Aai",
+		bookAuthor: "Sane Guruji",
+		bookPages: 200,
+		bookPrice: 240,
+		bookState: "Available"
+	}
+]
+
+const second = express()
+
+second.set('view engine', 'ejs')
+
+second.use(bodyParser.json());
+second.use(bodyParser.urlencoded({
+	extended: true
+}))
+
+second.get("/", function (req, res) {
+	res.render("home", {
+		data: books
+	})
+})
+
+second.listen(3000, (req, res) => {
+	console.log("second is running on port 3000")
+})
+const Third = express()
+
+Third.set('view engine', 'ejs')
+
+Third.use(bodyParser.json());
+Third.use(bodyParser.urlencoded({
+	extended: true
+}))
+
+Third.get("/", function (req, res) {
+	res.render("home", {
+		data: books
+	})
+})
+
+Third.post("/", (req, res) => {
+	const inputBookName = req.body.bookName
+	const inputBookAuthor = req.body.bookAuthor
+	const inputBookPages = req.body.bookPages
+	const inputBookPrice = req.body.bookPrice
+
+	books.push({
+		bookName: inputBookName,
+		bookAuthor: inputBookAuthor,
+		bookPages: inputBookPages,
+		bookPrice: inputBookPrice,
+		bookState: "Available"
+	})
+
+	res.render("home", {
+		data: books
+	})
+})
+
+first.post('/issue', (req, res) => {
+	var requestedBookName = req.body.bookName;
+	books.forEach(book => {
+		if (book.bookName == requestedBookName) {
+			book.bookState = "Issued";
+		}
+	})
+	res.render("home", {
+		data: books
+	})
+})
+
+first.post('/return', (req, res) => {
+	var requestedBookName = req.body.bookName;
+	books.forEach(book => {
+		if (book.bookName == requestedBookName) {
+			book.bookState = "Available";
+		}
+	})
+	res.render("home", {
+		data: books
+	})
+})
+
+first.post('/delete', (req, res) => {
+	var requestedBookName = req.body.bookName;
+	var j = 0;
+	books.forEach(book => {
+		j = j + 1;
+		if (book.bookName == requestedBookName) {
+			books.splice((j - 1), 1)
+		}
+	})
+	res.render("home", {
+		data: books
+	})
+})
+
+first.listen(3000, (req, res) => {
+	console.log("App is running on port 3000")
+})
+
